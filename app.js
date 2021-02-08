@@ -49,22 +49,22 @@ const roll = () => {
 rollButton.addEventListener('click', roll);
 
 function save() {
+    i = 0;
     for (let die of dice) {
         if (die.saved == false && die.id == this.id) {
             die.saved = true;
             this.classList.toggle('highlight');
+            console.log(dice[i]);
         }
         else if (die.saved == true && die.id == this.id) {
             die.saved = false;
             this.classList.toggle('highlight');
+            console.log(dice[i]);
         }
+        i++;
     }
-    console.log(dice);
 }
 
 for (let div of divs) {
     div.addEventListener('click', save);
 }
-
-//02/05 12:51PM - currently having issue where sometimes it shows objects to be all true or all false instead of individually. May have to do with multiple die having same
-//value when rolled/selected
