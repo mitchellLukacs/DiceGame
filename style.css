@@ -1,0 +1,11 @@
+.saved {
+    border: 2px solid black;
+}
+
+.active {
+    border: 2px solid black;
+}
+
+.highlight {
+    border: 2px solid blue;
+}
