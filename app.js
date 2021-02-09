@@ -7,7 +7,7 @@ function generateNum() {
 const activeDivs = document.querySelectorAll('.active');
 const savedDivs = document.querySelectorAll('.saved');
 
-let numOfRolls = 0
+let numOfRolls = 0;
 
 const dice = [
     {
@@ -37,7 +37,7 @@ const dice = [
     },
 ]
 
-const rolldice = () => {
+function rolldice() {
     numOfRolls++;
     for (let die of dice) {
         if (die.saved == false) {
@@ -47,8 +47,6 @@ const rolldice = () => {
         }
     }
 }
-
-rollButton.addEventListener('click', rolldice);
 
 function save() {
     i = 1;
@@ -80,10 +78,17 @@ function unsave() {
     }
 }
 
+rollButton.addEventListener('click', rolldice);
+
 for (let div of activeDivs) {
     div.addEventListener('click', save);
 }
 
 for (let div of savedDivs) {
     div.addEventListener('click', unsave);
-} 
+}
+
+// if (numOfRolls = 3) {
+//     alert("That's the end of your turn. Take your score!");
+//     rollButton.removeEventListener('click', rolldice);
+// }
