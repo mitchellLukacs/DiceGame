@@ -7,6 +7,7 @@ function generateNum() {
 const activeDivs = document.querySelectorAll('.active');
 const savedDivs = document.querySelectorAll('.saved');
 
+let numOfRolls = 0
 
 const dice = [
     {
@@ -36,7 +37,8 @@ const dice = [
     },
 ]
 
-const roll = () => {
+const rolldice = () => {
+    numOfRolls++;
     for (let die of dice) {
         if (die.saved == false) {
             die.value = generateNum();
@@ -46,7 +48,7 @@ const roll = () => {
     }
 }
 
-rollButton.addEventListener('click', roll);
+rollButton.addEventListener('click', rolldice);
 
 function save() {
     i = 1;
