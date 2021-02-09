@@ -49,7 +49,7 @@ function rolldice() {
 }
 
 function save() {
-    i = 1;
+    i = 0;
     for (let die of dice) {
         const savedDiv = document.querySelector(`#saved${i}`);
         const activeDiv = document.querySelector(`#${die.id}`);
@@ -64,7 +64,7 @@ function save() {
 }
 
 function unsave() {
-    i = 1;
+    i = 0;
     for (let die of dice) {
         const savedDiv = document.querySelector(`#saved${i}`);
         const activeDiv = document.querySelector(`#${die.id}`);
