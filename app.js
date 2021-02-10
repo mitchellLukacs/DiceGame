@@ -1,5 +1,6 @@
 const rollButton = document.querySelector('#roll');
 const nextTurn = document.querySelector('#nextTurn');
+const score = document.querySelector('#score');
 
 function generateNum() {
     return Math.floor((Math.random() * 6) + 1);
@@ -38,10 +39,13 @@ const dice = [
     },
 ]
 
+const playerRoll = [];
+
 function rolldice() {
     numOfRolls++;
     if (numOfRolls <= 3) {
         for (let die of dice) {
+            document.querySelector(`#${die.id}`).className = 'highlight';
             if (die.saved == false) {
                 die.value = generateNum();
                 document.querySelector(`#${die.id}`).innerText = die.value;
@@ -86,6 +90,7 @@ function reset() {
     for (let div of activeDivs) {
         div.innerText = null;
         div.style.display = 'block';
+        div.classList.toggle('highlight');
     }
     for (let div of savedDivs) {
         div.innerText = null;
@@ -105,3 +110,12 @@ for (let div of activeDivs) {
 for (let div of savedDivs) {
     div.addEventListener('click', unsave);
 }
+
+function saveDice() {
+    for (let die of dice) {
+        playerRoll.push(die.value);
+        console.log(playerRoll);
+    }
+}
+
+score.addEventListener('click', saveDice);
