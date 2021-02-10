@@ -1,4 +1,5 @@
 const rollButton = document.querySelector('#roll');
+const nextTurn = document.querySelector('#nextTurn');
 
 function generateNum() {
     return Math.floor((Math.random() * 6) + 1);
@@ -39,46 +40,63 @@ const dice = [
 
 function rolldice() {
     numOfRolls++;
-    for (let die of dice) {
-        if (die.saved == false) {
-            die.value = generateNum();
-            const divID = document.querySelector(`#${die.id}`)
-            divID.innerText = die.value;
+    if (numOfRolls <= 3) {
+        for (let die of dice) {
+            if (die.saved == false) {
+                die.value = generateNum();
+                document.querySelector(`#${die.id}`).innerText = die.value;
+            }
         }
     }
 }
 
 function save() {
-    i = 0;
+    i = 1;
     for (let die of dice) {
         const savedDiv = document.querySelector(`#saved${i}`);
-        const activeDiv = document.querySelector(`#${die.id}`);
-        if (die.saved == false && die.id == this.id) {
-            die.saved = true;
+        if (die.id == this.id) {
+            die.saved = !die.saved;
             savedDiv.classList.toggle('highlight');
             savedDiv.innerText = die.value;
-            activeDiv.style.display = 'none';
+            this.style.display = 'none';
         }
         i++;
     }
 }
 
 function unsave() {
-    i = 0;
     for (let die of dice) {
-        const savedDiv = document.querySelector(`#saved${i}`);
         const activeDiv = document.querySelector(`#${die.id}`);
-        if (die.saved == true && (die.id[3] == this.id[5])) {
-            die.saved = false;
-            savedDiv.innerText = null;
-            savedDiv.classList.toggle('highlight');
+        if (die.id[3] == this.id[5]) {
+            die.saved = !die.saved;
+            this.innerText = null;
+            this.classList.toggle('highlight');
             activeDiv.style.display = 'block';
         }
-        i++;
+    }
+}
+
+function reset() {
+    numOfRolls = 0;
+    rollButton.addEventListener('click', rolldice);
+    for (let die of dice) {
+        die.saved = false;
+        die.value = null;
+    }
+    for (let div of activeDivs) {
+        div.innerText = null;
+        div.style.display = 'block';
+    }
+    for (let div of savedDivs) {
+        div.innerText = null;
+        if (div.className.includes('highlight')) {
+            div.classList.toggle('highlight');
+        }
     }
 }
 
 rollButton.addEventListener('click', rolldice);
+nextTurn.addEventListener('click', reset);
 
 for (let div of activeDivs) {
     div.addEventListener('click', save);
@@ -87,8 +105,3 @@ for (let div of activeDivs) {
 for (let div of savedDivs) {
     div.addEventListener('click', unsave);
 }
-
-// if (numOfRolls = 3) {
-//     alert("That's the end of your turn. Take your score!");
-//     rollButton.removeEventListener('click', rolldice);
-// }
