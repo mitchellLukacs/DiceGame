@@ -39,7 +39,7 @@ const dice = [
     },
 ]
 
-const playerRoll = [];
+const diceValues = [];
 
 function rolldice() {
     numOfRolls++;
@@ -113,9 +113,124 @@ for (let div of savedDivs) {
 
 function saveDice() {
     for (let die of dice) {
-        playerRoll.push(die.value);
-        console.log(playerRoll);
+        diceValues.push(die.value);
+        console.log(diceValues);
     }
 }
 
 score.addEventListener('click', saveDice);
+
+let scoreTotal = 0;
+function diceTotal() {
+    for (let die of dice) {
+        scoreTotal += die.value;
+    }
+    return scoreTotal;
+}
+
+let onesTotal = 0;
+function onesScore() {
+    for (let die of dice) {
+        if (die.value == 1) {
+            onesTotal += die.value;
+        }
+    }
+    return onesTotal;
+}
+
+let twosTotal = 0;
+function twosScore() {
+    for (let die of dice) {
+        if (die.value == 2) {
+            twosTotal += die.value;
+        }
+    }
+    return twosTotal;
+}
+
+let threesTotal = 0;
+function threesScore() {
+    for (let die of dice) {
+        if (die.value == 3) {
+            threesTotal += die.value;
+        }
+    }
+    return threesTotal;
+}
+
+let foursTotal = 0;
+function foursScore() {
+    for (let die of dice) {
+        if (die.value == 4) {
+            foursTotal += die.value;
+        }
+    }
+    return foursTotal;
+}
+
+let fivesTotal = 0;
+function fivesScore() {
+    for (let die of dice) {
+        if (die.value == 5) {
+            fivesTotal += die.value;
+        }
+    }
+    return fivesTotal;
+}
+
+let sixesTotal = 0;
+function sixesScore() {
+    for (let die of dice) {
+        if (die.value == 6) {
+            sixesTotal += die.value;
+        }
+    }
+    return sixesTotal;
+}
+
+let threeOfKind = 0;
+function threeOfKindScore() {
+    let multiplesScore = 0;
+    let singlesScore = 0;
+    let numOfMultiples = 0;
+    for (let die of dice) {
+        let dieValue = die.value;
+        console.log(dieValue);
+        if (die.value != dieValue) {
+            console.log(die.value);
+            singlesScore += die.value;
+            //console.log(die.value, die.id, singlesScore);
+        } else {
+            numOfMultiples++;
+            multiplesScore += die.value;
+            //console.log(`num of Multiples: ${numOfMultiples}`);
+            //console.log(`Multiples score: ${multiplesScore}`);
+        }
+    }
+    if (numOfMultiples >= 3) {
+        threeOfKind = singlesScore + multiplesScore;
+        //console.log(`Singles score: ${singlesScore}`, `Multiples score: ${multiplesScore}`);
+    }
+    return threeOfKind;
+}
+//     let numOfMultiples = 0;
+//     for (let die of dice) {
+//         const dieValue = die.value;
+//         for (let die of dice) {
+//             if (die.value == dieValue) {
+//                 numOfMultiples++;
+//                 console.log(die.id, numOfMultiples);
+//             }
+//         }
+//         if (numOfMultiples >= 3) {
+//             threeOfKind += die.value;
+//             console.log(threeOfKind);
+//         }
+//     }
+//     console.log(threeOfKind);
+//     return threeOfKind;
+// }
+
+
+let upperSection = onesTotal + twosTotal + threesTotal + foursTotal + fivesTotal + sixesTotal;
+const bonus = 35;
