@@ -141,7 +141,6 @@ function reset() {
         for (let item of p2ScoreBoxes) {
             if (item.id.startsWith('p2')) {
                 if (item.className.includes('scratch') === true) {
-                    console.log(i);
                     p2RemoveEvents(i);
                 }
                 i++;
@@ -155,7 +154,6 @@ function reset() {
         for (let item of p1ScoreBoxes) {
             if (item.id.startsWith('p1')) {
                 if (item.className.includes('scratch') === true) {
-                    console.log(i);
                     p1RemoveEvents(i);
                 }
                 i++;
@@ -163,8 +161,6 @@ function reset() {
         }
     }
 }
-
-//After next turn, still able to score using scratched box. Cannot affect other player's scratch score as was previously the issue.
 
 let p1OnesTotal = 0;
 let p2OnesTotal = 0;
@@ -886,14 +882,11 @@ function p1ScratchDisable(num, thisParam) {
             }
             if (element.id.startsWith('p1')) {
                 element.removeEventListener('click', p1ScratchNames[i]);
-                console.log(p1ScratchNames[i]);
                 i++;
             }
         }
     } else {
         p1ScratchAddEvents();
-        console.log('Adding p1Events');
-        console.log(p1ScratchNames);
     }
 }
 function p2ScratchDisable(num, thisParam) {
@@ -906,14 +899,11 @@ function p2ScratchDisable(num, thisParam) {
             }
             if (element.id.startsWith('p2')) {
                 element.removeEventListener('click', p2ScratchNames[i]);
-                console.log(p2ScratchNames[i]);
                 i++;
             }
         }
     } else {
         p2ScratchAddEvents();
-        console.log('Adding p2Events');
-        console.log(p2ScratchNames);
     }
 }
 
