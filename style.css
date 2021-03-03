@@ -1,3 +1,98 @@
 .highlight {
     border: 2px solid blue;
 }
+
+.scratch {
+    background-color: black;
+}
+
+.display {
+    display: none;
+}
+
+#scoreSheet {
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.diceContainer {
+    display: flex;
+    max-height: 62px;
+}
+
+.activeDice, .savedDice {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.dice {
+    max-height: 44px;
+}
+
+.dice div {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.saved {
+    vertical-align: middle;
+}
+
+.column {
+    display: inline;
+    width: 50%;
+}
+
+.column row {
+    display: flex;
+    border: 1px solid black;
+}
+
+.bonusContainer {
+    width: 100%;
+    display: flex;
+}
+
+.bonus {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    border: 1px solid black;
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+    max-height: 18px;
+}
+
+.padding {
+    padding-top: 1.5px;
+    padding-bottom: 1.5px;
+}
+
+#col1 row, #col2 row, #col3 row, #col4 row {
+    justify-content: center;
+}
+
+#lowerMidLeft, #lowerMidRight, #lowerRight {
+    height: 18px;
+}
+
+#bonusUpper {
+    border-bottom: none;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+#bonusLower {
+    border-top: none;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+#playerTurn {
+    display: inline;
+}

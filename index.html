@@ -9,33 +9,154 @@
 </head>
 
 <body>
-    <button id="roll">ROLL!</button>
-    <button id="score">SCORE!</button>
-    <button id="nextTurn">NEXT TURN</button>
-    <header>Current Roll</header>
-    <div class="active" id="die1">
-    </div>
-    <div class="active" id="die2">
-    </div>
-    <div class="active" id="die3">
-    </div>
-    <div class="active" id="die4">
-    </div>
-    <div class="active" id="die5">
-    </div>
+    <span>
+        <button id="roll">ROLL!</button>
+        <button id="nextTurn">NEXT TURN</button>
+        <div id="playerTurn">Player 1</div>
+    </span>
 
+    <div class="diceContainer">
+        <div class="activeDice">
+            <header>Current Roll</header>
+            <div class="dice">
+                <div class="active" id="die1">
+                </div>
+                <div class="active" id="die2">
+                </div>
+                <div class="active" id="die3">
+                </div>
+                <div class="active" id="die4">
+                </div>
+                <div class="active" id="die5">
+                </div>
+            </div>
+        </div>
+        <div class="savedDice">
+            <header>Saved Dice</header>
+            <div class="dice">
+                <div class="saved" id="saved1">
+                </div>
+                <div class="saved" id="saved2">
+                </div>
+                <div class="saved" id="saved3">
+                </div>
+                <div class="saved" id="saved4">
+                </div>
+                <div class="saved" id="saved5">
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
-    <br>
-    <header>Saved Dice</header>
-    <div class="saved" id="saved1">
-    </div>
-    <div class="saved" id="saved2">
-    </div>
-    <div class="saved" id="saved3">
-    </div>
-    <div class="saved" id="saved4">
-    </div>
-    <div class="saved" id="saved5">
+    <div id="scoreSheet">
+        <div id="col1" class="column">
+            <row>UPPER SECTION</row>
+            <row>Ones</row>
+            <row>Twos</row>
+            <row>Threes</row>
+            <row>Fours</row>
+            <row>Fives</row>
+            <row>Sixes</row>
+            <row>TOTAL</row>
+            <row>BONUS - If total is 63 or over</row>
+            <row>TOTAL Of upper section</row>
+            <row id="lowerLeft">LOWER SECTION</row>
+            <row>3 of a kind</row>
+            <row>4 of a kind</row>
+            <row>Full House</row>
+            <row>Small straight sequence of 4</row>
+            <row>Large straight sequence of 5</row>
+            <row>YAHTZEE 5 of a kind</row>
+            <row>Chance</row>
+            <row id="bonusUpper">YAHTZEE</row>
+            <row id="bonusLower">BONUS</row>
+            <row>TOTAL Of lower section</row>
+            <row>TOTAL Of upper section</row>
+            <row>GRAND TOTAL</row>
+        </div>
+        <div id="col2" class="column">
+            <row>HOW TO SCORE</row>
+            <row>Count and add only Ones</row>
+            <row>Count and add only Twos</row>
+            <row>Count and add only Threes</row>
+            <row>Count and add only Fours</row>
+            <row>Count and add only Fives</row>
+            <row>Count and add only Sixes</row>
+            <row>&#8594</row>
+            <row>SCORE 35</row>
+            <row>&#8594</row>
+            <row id="lowerMidLeft"></row>
+            <row>Add total of all dice</row>
+            <row>Add total of all dice</row>
+            <row>SCORE 25</row>
+            <row>SCORE 30</row>
+            <row>SCORE 40</row>
+            <row>SCORE 50</row>
+            <row>Score Total of All 5 dice</row>
+            <row>&#10003 FOR EACH BONUS</row>
+            <row>SCORE 100 PER &#10003</row>
+            <row>&#8594</row>
+            <row>&#8594</row>
+            <row>&#8594</row>
+        </div>
+        <div id="col3" class="column p1Score">
+            <row>PLAYER 1 SCORE</row>
+            <row id="p1Ones">-</row>
+            <row id="p1Twos">-</row>
+            <row id="p1Threes">-</row>
+            <row id="p1Fours">-</row>
+            <row id="p1Fives">-</row>
+            <row id="p1Sixes">-</row>
+            <row id="firstUpperTotalP1">-</row>
+            <row id="upperBonusP1">-</row>
+            <row id="secondUpperTotalP1">-</row>
+            <row id="lowerMidRight"></row>
+            <row id="p13OfKind">-</row>
+            <row id="p14OfKind">-</row>
+            <row id="p1FullHouse">-</row>
+            <row id="p1SmallStraight">-</row>
+            <row id="p1LargeStraight">-</row>
+            <row id="p1Yahtzee">-</row>
+            <row id="p1Chance">-</row>
+            <div class="bonusContainer">
+                <div id="p1Bonus1" class="bonus">-</div>
+                <div id="p1Bonus2" class="bonus">-</div>
+                <div id="p1Bonus3" class="bonus">-</div>
+            </div>
+            <row id="p1YahtzeeBonusTotal" class="padding">-</row>
+            <row id="lowerTotalP1">-</row>
+            <row id="thirdUpperTotalP1">-</row>
+            <row id="grandTotalP1">-</row>
+        </div>
+        <div id="col4" class="column p2Score">
+            <row>PLAYER 2 SCORE</row>
+            <row id="p2Ones">-</row>
+            <row id="p2Twos">-</row>
+            <row id="p2Threes">-</row>
+            <row id="p2Fours">-</row>
+            <row id="p2Fives">-</row>
+            <row id="p2Sixes">-</row>
+            <row id="firstUpperTotalP2">-</row>
+            <row id="upperBonusP2">-</row>
+            <row id="secondUpperTotalP2">-</row>
+            <row id="lowerRight"></row>
+            <row id="p23OfKind">-</row>
+            <row id="p24OfKind">-</row>
+            <row id="p2FullHouse">-</row>
+            <row id="p2SmallStraight">-</row>
+            <row id="p2LargeStraight">-</row>
+            <row id="p2Yahtzee">-</row>
+            <row id="p2Chance">-</row>
+            <div class="bonusContainer">
+                <div id="p2Bonus1" class="bonus">-</div>
+                <div id="p2Bonus2" class="bonus">-</div>
+                <div id="p2Bonus3" class="bonus">-</div>
+            </div>
+            <row id="p2YahtzeeBonusTotal" class="padding">-</row>
+            <row id="lowerTotalP2">-</row>
+            <row id="thirdUpperTotalP2">-</row>
+            <row id="grandTotalP2">-</row>
+        </div>
     </div>
 
     <script src="app.js"></script>
